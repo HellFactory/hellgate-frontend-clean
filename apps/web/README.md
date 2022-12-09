@@ -23,6 +23,13 @@ are welcome!
 ## Skill Test
 
 1. Create components and pages for rendering Card and List
+   - Page must have List of Cards
+   - Page must have Draw button
+   - Page must have Pullback button
+   - Page must have Reset button
+   - Page must have Shuffle button
+   - Page must have Deck and count of cards remaining
+   - Page must have checkbox for sorting by suit
 2. Create a context for managing the state of the application
    - You can use pure React Context or use Redux, Recoil, or any other state management library
 3. Create a custom hook for managing the state of the application
@@ -34,6 +41,7 @@ are welcome!
    - Create a component for showing the deck
    - Create a component for manage the list of cards (draw, pullback to top deck, shuffle card in deck)
    - List must be filterable by card name (eg: "A" will show all cards that have "A" in their name)
+   - List must be sortable by suit and rank (eg:  clubs (lowest), followed by diamonds, hearts, and spades (highest))
 5. Draw the card into list
    - Card must be unique on the list
    - Card must have rank and suit (eg: 2S, 3H, 4D, 5C, 6S, 7H, 8D, 9C, 10S, JS, QH, KD, AC)
@@ -55,7 +63,7 @@ are welcome!
    - Large screen list of cards must be in a 6 column layout
 9. Unit test state management
 
-## Example Card Rendering
+## Example Card Component Rendering
 AC = Ace of Club (♣)
 
 AS = Ace of Spade (♠)
