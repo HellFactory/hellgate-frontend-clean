@@ -20,6 +20,5 @@ export interface BestTexasHoldemHand {
   handCards: Card[];
   handCardsRankValue: number;
   handCardSuits: string[];
-  bestHandCardHolding: Card;
   display: string;
 }

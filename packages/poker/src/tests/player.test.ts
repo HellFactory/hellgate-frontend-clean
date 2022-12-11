@@ -1,5 +1,5 @@
 import { Player } from "../player";
-import { shortNameToCard } from "../utils";
+import { makeReadableHandArray, shortNameToCard } from '../utils'
 import { EHandRank } from "../constants";
 
 describe("Test Player Class", function () {
@@ -22,103 +22,42 @@ describe("Test Player Class", function () {
     ]);
   });
 
-  it("should be return valid hand rank", function () {
-    const player1 = new Player({
-      hand: [shortNameToCard("9C"), shortNameToCard("KC")],
-      name: "Player 1",
-      position: 1,
-    });
-    const player2 = new Player({
-      hand: [shortNameToCard("5D"), shortNameToCard("5S")],
-      name: "Player 2",
-      position: 2,
-    });
-    const boardCards = [
-      shortNameToCard("KH"),
-      shortNameToCard("5C"),
-      shortNameToCard("6S"),
-      shortNameToCard("9H"),
-      shortNameToCard("JC"),
-    ];
-    player1.setBoardCards(boardCards);
-    player2.setBoardCards(boardCards);
-
-    expect(player1.getHighestHoldingCard()).toMatchObject(
-      shortNameToCard("KC")
-    );
-    expect(player2.getHighestHoldingCard()).toMatchObject(
-      shortNameToCard("5S")
-    );
-  });
-
   // Bonus Test
-  it("should be compare all possible Hands and Flop", function () {
+  it("should be compare all possible Hands and Flop", function() {
     const player = new Player({
       name: "John",
       hand: [shortNameToCard("9h"), shortNameToCard("10h")],
-      position: 1,
+      position: 1
     });
     player.setBoardCards([
       shortNameToCard("2s"),
       shortNameToCard("3s"),
       shortNameToCard("4s"),
       shortNameToCard("5s"),
-      shortNameToCard("6s"),
+      shortNameToCard("6s")
     ]);
     const actual = player.allPossibleHands();
-    expect(actual).toContainEqual(
-      expect.arrayContaining([
-        shortNameToCard("2s"),
-        shortNameToCard("3s"),
-        shortNameToCard("4s"),
-        shortNameToCard("9h"),
-        shortNameToCard("10h"),
-      ])
-    );
-    expect(actual).toContainEqual(
-      expect.arrayContaining([
-        shortNameToCard("2s"),
-        shortNameToCard("3s"),
-        shortNameToCard("5s"),
-        shortNameToCard("9h"),
-        shortNameToCard("10h"),
-      ])
-    );
-    expect(actual).toContainEqual(
-      expect.arrayContaining([
-        shortNameToCard("3s"),
-        shortNameToCard("4s"),
-        shortNameToCard("5s"),
-        shortNameToCard("9h"),
-        shortNameToCard("10h"),
-      ])
-    );
-    expect(actual).toContainEqual(
-      expect.arrayContaining([
-        shortNameToCard("3s"),
-        shortNameToCard("4s"),
-        shortNameToCard("6s"),
-        shortNameToCard("9h"),
-        shortNameToCard("10h"),
-      ])
-    );
-
-    expect(actual).toContainEqual(
-      expect.arrayContaining([
-        shortNameToCard("4s"),
-        shortNameToCard("5s"),
-        shortNameToCard("6s"),
-        shortNameToCard("9h"),
-        shortNameToCard("10h"),
-      ])
-    );
+    const allPossibleHands = actual.map(c => makeReadableHandArray(c));
+    expect(allPossibleHands).toEqual([
+      "2s 3s 4s 9h 10h", "2s 3s 5s 9h 10h",
+      "2s 3s 6s 9h 10h", "2s 4s 5s 9h 10h",
+      "2s 4s 6s 9h 10h", "2s 5s 6s 9h 10h",
+      "3s 4s 5s 9h 10h", "3s 4s 6s 9h 10h",
+      "3s 5s 6s 9h 10h", "4s 5s 6s 9h 10h",
+      "2s 3s 4s 5s 9h", "2s 3s 4s 6s 9h",
+      "2s 3s 5s 6s 9h", "2s 4s 5s 6s 9h",
+      "3s 4s 5s 6s 9h", "2s 3s 4s 5s 10h",
+      "2s 3s 4s 6s 10h", "2s 3s 5s 6s 10h",
+      "2s 4s 5s 6s 10h", "3s 4s 5s 6s 10h",
+      "2s 3s 4s 5s 6s"
+    ]);
     expect(actual).not.toContainEqual(
       expect.arrayContaining([
         shortNameToCard("2s"),
         shortNameToCard("3s"),
         shortNameToCard("5s"),
-        shortNameToCard("5s"),
-        shortNameToCard("6s"),
+        shortNameToCard("5c"),
+        shortNameToCard("6s")
       ])
     );
   });
@@ -145,6 +84,5 @@ describe("Test Player Class", function () {
       shortNameToCard("9s"),
       shortNameToCard("As"),
     ]);
-    expect(actual.bestHandCardHolding).toEqual(shortNameToCard("9h"));
   });
 });

@@ -40,10 +40,6 @@ export class Player {
     this.boardCards = [];
   }
 
-  public getHighestHoldingCard(): Card {
-    return null;
-  }
-
   public sumCardRankValue(cards: Card[]): number {
     return 0
   }
@@ -59,7 +55,6 @@ export class Player {
       handCards: [],
       handCardSuits: [],
       handCardsRankValue: this.sumCardRankValue([]),
-      bestHandCardHolding: this.getHighestHoldingCard(),
       display: makeReadableHandArray([]),
     };
   }
