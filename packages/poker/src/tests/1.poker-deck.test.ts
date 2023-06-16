@@ -4,8 +4,8 @@ import { shortNameToCard } from "../utils";
 
 describe("PokerDeck function test", function() {
   test("create deck", () => {
-    const h = new PokerDeck();
-    expect(h.getDeck()).toHaveLength(CARDS_COUNT);
+    const pokerDec = new PokerDeck();
+    expect(pokerDec.getDeck()).toHaveLength(CARDS_COUNT);
   });
 
   test("sample check card in deck", () => {
@@ -19,7 +19,7 @@ describe("PokerDeck function test", function() {
     );
   });
 
-  test("shuffle deck will not equal default deck", () => {
+  test("shuffle deck will not equal sorted deck", () => {
     const deck1 = new PokerDeck();
     const deck2 = new PokerDeck({ shuffle: true });
     const defaultDeck = deck1.getDeck();
@@ -28,7 +28,7 @@ describe("PokerDeck function test", function() {
     expect(defaultDeck.length).toEqual(shuffledDeck.length);
   });
 
-  test("deal 5 cards", () => {
+  test("deal out 5 cards", () => {
     const deck = new PokerDeck({ shuffle: true });
     const totalDealtCards = 6;
     const myDeck = deck.getDeck();

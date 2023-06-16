@@ -11,7 +11,7 @@ describe("Test Handler class", function() {
     handler
       .addPlayerSeat({ hand: [], name: "John", position: 1 })
       .addPlayerSeat({ hand: [], name: "Lolin", position: 2 })
-      .dealCardToAllPlayer(1)
+      .dealCardToAllPlayer()
       .gameReset();
     handler.getPlayers().forEach(p => {
       expect(p.getHand().length).toBe(0);
@@ -44,9 +44,8 @@ describe("Test Handler class", function() {
     handler
       .addPlayerSeat({ hand: [], position: handler.getPlayerSeat().length + 1 })
       .addPlayerSeat({ hand: [], position: handler.getPlayerSeat().length + 1 })
-      .dealCardToAllPlayer(1)
-      .dealCardToAllPlayer(1);
-
+      .dealCardToAllPlayer()
+      .dealCardToAllPlayer();
     expect(handler.getPlayers()[0].getHand().length).toBe(2);
     expect(handler.getPlayers()[1].getHand().length).toBe(2);
   });

@@ -1,4 +1,4 @@
-import { BestTexasHoldemHand, Card, PlayerInterface } from "./types";
+import { BestTexasHoldemHand, CardType, PlayerInterface } from "./types";
 import {
   calculateHandRank,
   makeReadableHandArray,
@@ -7,9 +7,9 @@ import {
 
 export class Player {
   public name: string;
-  private handCards: Card[];
+  private handCards: CardType[];
 
-  public boardCards: Card[] = [];
+  public boardCards: CardType[] = [];
 
   public position: number;
 
@@ -20,18 +20,18 @@ export class Player {
     return this;
   }
 
-  public setBoardCards(cards: Card[]): this {
+  public setBoardCards(cards: CardType[]): this {
     return this;
   }
 
-  public getBoardCards(): Card[] {
+  public getBoardCards(): CardType[] {
     return this.boardCards;
   }
 
-  public addCardToHand(card: Card[]): void {
+  public addCardToHand(card: CardType[]): void {
   }
 
-  public getHand(): Card[] {
+  public getHand(): CardType[] {
     return this.handCards;
   }
 
@@ -40,11 +40,11 @@ export class Player {
     this.boardCards = [];
   }
 
-  public sumCardRankValue(cards: Card[]): number {
+  public sumCardRankValue(cards: CardType[]): number {
     return 0
   }
 
-  public allPossibleHands(): Card[][] {
+  public allPossibleHands(): CardType[][] {
     return []
   }
 

@@ -1,24 +1,24 @@
-import { Card } from "./types";
+import { CardType } from "./types";
 export class PokerDeck {
-  private readonly deck: Card[] = [];
+  private readonly deck: CardType[] = [];
 
   constructor(options?: { shuffle?: boolean }) {
 
   }
 
-  private shuffleDeck(): Card[] {
+  private shuffleDeck(): CardType[] {
     return []
   }
 
-  public createDeck(): Card[] {
+  public createDeck(): CardType[] {
    return []
   }
 
-  public dealCards(count: number): Card[] {
+  public dealCards(count: number): CardType[] {
     return []
   }
 
-  public getDeck(): Card[] {
+  public getDeck(): CardType[] {
     return this.deck;
   }
 }

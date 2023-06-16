@@ -1,11 +1,11 @@
 import { Player } from './player'
-import { Card, PlayerInterface } from './types'
+import { CardType, PlayerInterface } from './types'
 import { PokerDeck } from './poker-deck'
 
 export class Handler {
   private deck: PokerDeck
   public players: Player[] = []
-  public boardCards: Card[] = []
+  public boardCards: CardType[] = []
 
   constructor() {
     this.players = []
@@ -30,15 +30,15 @@ export class Handler {
     return this
   }
 
-  public dealCardToAllPlayer(count = 1): Handler {
+  public dealCardToAllPlayer(): Handler {
     /**
-     * TODO: Deal the card to all the players with the count
+     * TODO: Deal the card to all the players
      */
     return this
   }
 
   public preFlop(): Handler {
-    return this.dealCardToAllPlayer(1).dealCardToAllPlayer(1)
+    return this.dealCardToAllPlayer().dealCardToAllPlayer()
   }
 
   public dealFlop(): Handler {
@@ -59,7 +59,7 @@ export class Handler {
     return this.dealTurn()
   }
 
-  public getBoardCards(): Card[] {
+  public getBoardCards(): CardType[] {
     return this.boardCards
   }
 
@@ -74,7 +74,7 @@ export class Handler {
     return this
   }
 
-  public getDeck(): Card[] {
+  public getDeck(): CardType[] {
     return this.deck.getDeck()
   }
 

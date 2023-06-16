@@ -1,4 +1,4 @@
-export interface Card {
+export type CardType = {
   rank: string;
   suit: string;
   suitName: string;
@@ -9,7 +9,7 @@ export interface Card {
 }
 
 export interface PlayerInterface {
-  hand: Card[];
+  hand: CardType[];
   name?: string;
   position: number;
 }
@@ -17,7 +17,7 @@ export interface PlayerInterface {
 export interface BestTexasHoldemHand {
   handRankValue: number;
   handRankName: string;
-  handCards: Card[];
+  handCards: CardType[];
   handCardsRankValue: number;
   handCardSuits: string[];
   display: string;
