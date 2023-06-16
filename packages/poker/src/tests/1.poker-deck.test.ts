@@ -4,13 +4,13 @@ import { shortNameToCard } from "../utils";
 
 describe("PokerDeck function test", function() {
   test("create deck", () => {
-    const pokerDec = new PokerDeck();
-    expect(pokerDec.getDeck()).toHaveLength(CARDS_COUNT);
+    const pokerDeck = new PokerDeck();
+    expect(pokerDeck.getDeck()).toHaveLength(CARDS_COUNT);
   });
 
   test("sample check card in deck", () => {
-    const h = new PokerDeck();
-    const deck = h.getDeck();
+    const pokerDeck = new PokerDeck();
+    const deck = pokerDeck.getDeck();
     expect(deck).toEqual(
       expect.arrayContaining([
         expect.objectContaining(shortNameToCard("2C")),

@@ -44,4 +44,4 @@ pnpm run dev
 
 ### TODO
 - Run all test pass in directory packages/poker without editing test file 
-- 
+- Create a new page for showing the list of cards

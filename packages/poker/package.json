@@ -2,10 +2,8 @@
   "name": "poker",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
-  "exports": {
-    ".": "./dist"
-  },
+  "main": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap",
     "test": "jest run test",

@@ -121,14 +121,15 @@ export const shortNameToCard = (shortCardName: string): CardType => {
   };
 };
 
+
 /**
+ * !!! DO NOT EDIT THIS FUNCTION !!!
  * transform card object to short string
- * example return expected value = 2D
  * @param card
  */
 export const cardToShortName = (card: CardType): string => {
-  return ''
-}
+  return `${card.rank}${card.suit}`;
+};
 
 
 /**
