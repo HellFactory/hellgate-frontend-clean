@@ -7,6 +7,7 @@ import {
 
 export class Player {
   public name: string;
+
   private handCards: CardType[];
 
   public boardCards: CardType[] = [];
