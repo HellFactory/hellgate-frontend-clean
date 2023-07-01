@@ -29,8 +29,7 @@ export class Player {
     return this.boardCards;
   }
 
-  public addCardToHand(card: CardType[]): void {
-  }
+  public addCardToHand(card: CardType[]): void {}
 
   public getHand(): CardType[] {
     return this.handCards;
@@ -42,21 +41,26 @@ export class Player {
   }
 
   public sumCardRankValue(cards: CardType[]): number {
-    return 0
+    return 0;
   }
 
   public allPossibleHands(): CardType[][] {
-    return []
+    return [];
   }
 
   public findBestHandTexusHoldem(): BestTexasHoldemHand {
     return {
       handRankValue: 0,
-      handRankName: '',
+      handRankName: "",
       handCards: [],
       handCardSuits: [],
       handCardsRankValue: this.sumCardRankValue([]),
       display: makeReadableHandArray([]),
     };
+  }
+
+  public setFolded(){}
+
+  public isFolded(){
   }
 }
