@@ -35,8 +35,9 @@ Poker Game UI
 
 ### API Reference
 - [API Document](https://looxer.factory.fun/docs)
-- [API Endpoint](https://looxer.factory.fun/api)
-- [Web Socket Endpoint](wss://looxer.factory.fun/socket.io)
+- API Endpoint
+  - https://looxer.factory.fun/api
+- Web Socket Endpoint
   - wss://looxer.factory.fun/socket.io
 
 ### Socket.io Client
